@@ -1,0 +1,4 @@
+CREATE TABLE prime_entity (
+    id SERIAL PRIMARY KEY,
+    prime_number TEXT NOT NULL
+);

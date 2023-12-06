@@ -2,10 +2,14 @@ package com.poja.prime.endpoint.rest.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.poja.prime.conf.FacadeIT;
+
+import java.math.BigInteger;
+
 public class PrimeControllerIT extends FacadeIT {
   @Autowired PrimeController primeController;
 
@@ -20,4 +24,13 @@ public class PrimeControllerIT extends FacadeIT {
   }
 
 
+  @Test
+  void saveGeneratedPrime() {
+
+    String generatedPrime = primeController.getNewPrime();
+
+    primeController.saveGeneratedPrime(new BigInteger(generatedPrime));
+
+    assertTrue(primeController.getGeneratedPrimes().contains(generatedPrime));
+  }
 }

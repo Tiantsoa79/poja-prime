@@ -33,7 +33,7 @@ public class PrimeController {
       .toList();
   }
 
-  private void saveGeneratedPrime(BigInteger prime) {
+  public void saveGeneratedPrime(BigInteger prime) {
     try {
       PrimeEntity primeEntity = new PrimeEntity();
       primeEntity.setPrimeNumber(prime.toString());
